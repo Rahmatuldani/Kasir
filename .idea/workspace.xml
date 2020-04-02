@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f07a7b7-e451-4799-bc90-e9e4cc1745e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Utama/vUtama.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/META-INF/Kasir.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utama/vUtama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/vUtama.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +145,11 @@
       <workItem from="1584403521256" duration="38000" />
       <workItem from="1584884810443" duration="1524000" />
       <workItem from="1584893669953" duration="4906000" />
-      <workItem from="1584938650779" duration="7019000" />
+      <workItem from="1584938650779" duration="7613000" />
+      <workItem from="1585430796386" duration="3216000" />
+      <workItem from="1585479693416" duration="913000" />
+      <workItem from="1585754368736" duration="6000" />
+      <workItem from="1585809034436" duration="1087000" />
     </task>
     <servers />
   </component>
@@ -166,22 +169,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1584076519904" />
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1584946105882">
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1585812850387">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1584946105882" />
-    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1584946105881">
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1585812850387" />
+    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1585812850386">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1584946105881" />
-    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1584946105881">
+    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1585812850386" />
+    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1585812850386">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1584946105881" />
-    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1584946105882">
+    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1585812850386" />
+    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1585812850387">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1584946105882" />
+    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1585812850387" />
     <state x="249" y="7" key="SettingsEditor" timestamp="1584077694757">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
