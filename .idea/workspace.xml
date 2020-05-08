@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f07a7b7-e451-4799-bc90-e9e4cc1745e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utama/cUtama.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utama/mBarang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utama/mPegawai.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utama/mStruk.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utama/vUtama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/vUtama.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vUtama.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,14 +32,11 @@
     <expand />
     <select />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="Kasir" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JavaFXApplication" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -46,7 +50,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -61,7 +64,12 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Kasir\src\Utama" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.vUtama">
     <configuration name="Koneksi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -107,28 +115,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:praktikum@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:praktikum@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@515bab04" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -150,17 +136,29 @@
       <workItem from="1585479693416" duration="913000" />
       <workItem from="1585754368736" duration="6000" />
       <workItem from="1585809034436" duration="1087000" />
+      <workItem from="1585866683290" duration="17000" />
+      <workItem from="1585867261662" duration="2000" />
+      <workItem from="1588944733838" duration="108000" />
+      <workItem from="1588944912449" duration="4143000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="206" y="274" key="#SQL_Dialects" timestamp="1588947679492">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="206" y="274" key="#SQL_Dialects/0.0.1536.864@0.0.1536.864" timestamp="1588947679492" />
     <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584077117526">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1584077117526" />
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588947521248">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1588947521248" />
     <state x="523" y="148" key="DetectedRootsChooserDialog" timestamp="1584076523848">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -169,25 +167,25 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1584076519904" />
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1585812850387">
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1588947127576">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1585812850387" />
-    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1585812850386">
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1588947127576" />
+    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1588947127576">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1585812850386" />
-    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1585812850386">
+    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1588947127576" />
+    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1588947127576">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1585812850386" />
-    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1585812850387">
+    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1588947127576" />
+    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1588947127576">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1585812850387" />
-    <state x="249" y="7" key="SettingsEditor" timestamp="1584077694757">
+    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1588947127576" />
+    <state x="249" y="7" key="SettingsEditor" timestamp="1588944743058">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="249" y="7" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1584077694757" />
+    <state x="249" y="7" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1588944743058" />
   </component>
 </project>

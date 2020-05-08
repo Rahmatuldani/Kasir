@@ -17,25 +17,22 @@ public class vUtama extends JFrame{
     JPanel pKasir = new JPanel();
     JPanel pBarang = new JPanel();
     JPanel pLaporan = new JPanel();
-    
-//    Koneksi
+
+    //    Koneksi
     Connection connection;
     Statement statement;
     ResultSet resultSet;
-    
-//    Bagian Kasir
+
+    //    Bagian Kasir
     JLabel lno = new JLabel("No Transaksi : ",SwingConstants.RIGHT);
     JLabel ltanggal = new JLabel("Tanggal : ",SwingConstants.RIGHT);
     JLabel lkasir = new JLabel("Kasir : ",SwingConstants.RIGHT);
-    JLabel lmember = new JLabel("Member : ",SwingConstants.RIGHT);
     JLabel lkode = new JLabel("Kode Item : ",SwingConstants.RIGHT);
     JLabel ljum = new JLabel("Jumlah : ",SwingConstants.RIGHT);
 
     JTextField fno = new JTextField(30);
     JTextField ftanggal = new JTextField(30);
     JTextField fkasir = new JTextField(30);
-    String[] isi = {"UMUM","MEMBER"};
-    JComboBox fmember = new JComboBox(isi);
     JTextField fkode = new JTextField(15);
     JTextField fjum = new JTextField(7);
     JTextField ftotal = new JTextField("12.000",30);
@@ -56,11 +53,11 @@ public class vUtama extends JFrame{
     JScrollPane jScrollPane = new JScrollPane(table);
 //    End Bagian Kasir
 
-    
-//  Bagian Barang
+
+    //  Bagian Barang
     JPanel bHeader = new JPanel();
     JPanel tBarang = new JPanel();
-    
+
     public vUtama(){
         setTitle("Sistem Kasir");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -71,7 +68,7 @@ public class vUtama extends JFrame{
         tab.addTab("Kasir",pKasir);
         tab.addTab("Barang",pBarang);
         tab.addTab("Laporan",pLaporan);
-        
+
 //        Bagian Kasir
         pKasir.setLayout(null);
         dbarang.setLayout(new FlowLayout(FlowLayout.LEADING,30,3));
@@ -82,7 +79,7 @@ public class vUtama extends JFrame{
         ftotal.setFont(new Font("SansSerif",Font.PLAIN,90));
         ftotal.setHorizontalAlignment(SwingConstants.RIGHT);
         ftotal.setEditable(false);
-        
+
 //        Setting Tabel
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.setRowHeight(20);
@@ -112,8 +109,6 @@ public class vUtama extends JFrame{
         data.add(ftanggal);
         data.add(lkasir);
         data.add(fkasir);
-        data.add(lmember);
-        data.add(fmember);
         pKasir.add(data);
 
 //        Tambah ke panel kode barang
@@ -137,8 +132,6 @@ public class vUtama extends JFrame{
         ftanggal.setBounds(120,40,160,20);
         lkasir.setBounds(10,70,100,20);
         fkasir.setBounds(120,70,160,20);
-        lmember.setBounds(10,100,100,20);
-        fmember.setBounds(120,100,160,20);
         ftotal.setBounds(320,20,1165,110);
 
 //        set panel data, kode barang dan tabel
@@ -148,16 +141,16 @@ public class vUtama extends JFrame{
 
         add(tab);
         tab.setBounds(10,10,1520,825);
-        
+
 //      End Bagian Kasir
 
 //         Bagian Barang
         pBarang.setLayout(new BoxLayout(pBarang,BoxLayout.LINE_AXIS));
-        String[] kolom = {"Kode Item","Nama Barang","Jenis Barang","Harga","Stok","Aksi"};
+        String[] kolomBarang = {"Kode Item","Nama Barang","Jenis Barang","Harga","Stok","Aksi"};
         String[][] listbarang = new String[readBarang()][6];
-        JTable barangJTable = new JTable(readBarang(listbarang),kolom);
-        JScrollPane jScrollPane = new JScrollPane(barangJTable);
-        
+        JTable barangJTable = new JTable(readBarang(listbarang),kolomBarang);
+        JScrollPane BarangjScrollPane = new JScrollPane(barangJTable);
+
 //        Setting Tabel
         barangJTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         barangJTable.setRowHeight(20);
@@ -173,10 +166,20 @@ public class vUtama extends JFrame{
         barangJTable.getColumnModel().getColumn(4).setCellRenderer(righttable);
         barangJTable.getColumnModel().getColumn(5).setCellRenderer(righttable);
 
-//      Memasukkan Data ke dalam Frame        
-        pBarang.add(jScrollPane);
+//      Memasukkan Data ke dalam Frame
+        pBarang.add(BarangjScrollPane);
+
+
+//        Bagian Laporan
+        pLaporan.setLayout(new BoxLayout(pLaporan,BoxLayout.LINE_AXIS));
+        String[] kolomLaporan = {"Tanggal","ID Struk","Nama Kasir","Pendapatan"};
+        String[][] liststruk = new String[readStruk()][4];
+        JTable laporanJTable = new JTable(readStruk(liststruk),kolomLaporan);
+        JScrollPane LaporanjScrollPane = new JScrollPane(laporanJTable);
     }
-    
+
+
+    //pindahin ke controller
     public int readBarang(){
         int i=0;
         try {
@@ -193,7 +196,7 @@ public class vUtama extends JFrame{
         }
         return i;
     }
-      
+
     public String[][] readBarang(String listbarang[][]){
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir", "root", "");
@@ -214,12 +217,54 @@ public class vUtama extends JFrame{
         } catch (SQLException e){
             JOptionPane.showMessageDialog(null,"Database tidak terkoneksi", "Database Error", JOptionPane.ERROR_MESSAGE);
         }
-    return listbarang;
+        return listbarang;
     }
-    
+
+    public int readStruk(){
+        int i=0;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir", "root", "");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT struk.id_struk,struk.id_pegawai,tanggal,sum(jumlah) "
+                    + "FROM struk inner join detailstruk on struk.id_struk = detailstruk_id.struk "
+                    + "inner join pegawai on struk.id_pegawai = pegawai.id_pegawai group by struk.id_struk");
+            while (resultSet.next()){
+                i=i+1;
+            }
+            statement.close();
+            connection.close();
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null,"Database tidak terkoneksi", "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return i;
+    }
+
+    public String[][] readStruk(String listbarang[][]){
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir", "root", "");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT struk.id_struk,struk.id_pegawai,tanggal,sum(jumlah) AS pendapatan "
+                    + "FROM struk inner join detailstruk on struk.id_struk = detailstruk_id.struk "
+                    + "inner join pegawai on struk.id_pegawai = pegawai.id_pegawai group by struk.id_struk");
+            int i=0;
+            while (resultSet.next()){
+                listbarang[i][0] = resultSet.getString("id_struk");
+                listbarang[i][1] = resultSet.getString("id_pegawai");
+                listbarang[i][2] = resultSet.getString("tanggal");
+                listbarang[i][3] = resultSet.getString("pendapatan");
+                i=i+1;
+            }
+            statement.close();
+            connection.close();
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null,"Database tidak terkoneksi", "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return listbarang;
+    }
+
     public void crud(){
-    // CRUD BUTTON
-}
+
+    }
 
     public static void main(String[] args) {
         new vUtama();
