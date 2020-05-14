@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2020 at 04:02 PM
+-- Generation Time: May 08, 2020 at 04:59 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -29,23 +29,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `barang` (
-  `id_barang` int(11) NOT NULL,
-  `nama_barang` varchar(50) DEFAULT NULL,
-  `jenis_barang` varchar(50) DEFAULT NULL,
-  `harga_barang` int(11) DEFAULT NULL
+  `id_barang` bigint(20) NOT NULL,
+  `nama_barang` varchar(100) NOT NULL,
+  `jenis_barang` varchar(100) NOT NULL,
+  `harga_barang` bigint(20) NOT NULL,
+  `stok_barang` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member`
+-- Table structure for table `detail_struk`
 --
 
-CREATE TABLE `member` (
-  `id_member` int(11) NOT NULL,
-  `nama_member` varchar(50) DEFAULT NULL,
-  `jenis_kelamin_member` varchar(11) DEFAULT NULL,
-  `alamat_member` varchar(200) DEFAULT NULL
+CREATE TABLE `detail_struk` (
+  `id_barang` bigint(20) NOT NULL,
+  `id_struk` bigint(20) NOT NULL,
+  `jumlah` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -55,19 +55,12 @@ CREATE TABLE `member` (
 --
 
 CREATE TABLE `pegawai` (
-  `id_pegawai` int(11) NOT NULL,
-  `password` varchar(50) DEFAULT NULL,
-  `nama_pegawai` varchar(100) DEFAULT NULL,
-  `jenis_kelamin_pegawai` varchar(11) DEFAULT NULL,
-  `alamat_pegawai` varchar(200) DEFAULT NULL
+  `id_pegawai` bigint(20) NOT NULL,
+  `nama_pegawai` varchar(100) NOT NULL,
+  `password_pegawai` varchar(100) NOT NULL,
+  `jenis_kelamin_pegawai` varchar(100) NOT NULL,
+  `alamat_pegawai` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pegawai`
---
-
-INSERT INTO `pegawai` (`id_pegawai`, `password`, `nama_pegawai`, `jenis_kelamin_pegawai`, `alamat_pegawai`) VALUES
-(123180027, 'dani', 'dani', 'Laki', 'delima');
 
 -- --------------------------------------------------------
 
@@ -76,9 +69,9 @@ INSERT INTO `pegawai` (`id_pegawai`, `password`, `nama_pegawai`, `jenis_kelamin_
 --
 
 CREATE TABLE `struk` (
-  `id_pegawai` int(11) NOT NULL,
-  `id_member` int(11) NOT NULL,
-  `id_barang` int(11) NOT NULL
+  `id_struk` bigint(20) NOT NULL,
+  `id_pegawai` bigint(20) NOT NULL,
+  `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -92,10 +85,11 @@ ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indexes for table `member`
+-- Indexes for table `detail_struk`
 --
-ALTER TABLE `member`
-  ADD PRIMARY KEY (`id_member`);
+ALTER TABLE `detail_struk`
+  ADD KEY `ds_id_barang` (`id_barang`),
+  ADD KEY `ds_id_struk` (`id_struk`);
 
 --
 -- Indexes for table `pegawai`
@@ -107,21 +101,47 @@ ALTER TABLE `pegawai`
 -- Indexes for table `struk`
 --
 ALTER TABLE `struk`
-  ADD KEY `id_pegawai` (`id_pegawai`),
-  ADD KEY `id_member` (`id_member`),
-  ADD KEY `id_barang` (`id_barang`);
+  ADD PRIMARY KEY (`id_struk`),
+  ADD KEY `struk_id_pegawai` (`id_pegawai`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `barang`
+--
+ALTER TABLE `barang`
+  MODIFY `id_barang` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  MODIFY `id_pegawai` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `struk`
+--
+ALTER TABLE `struk`
+  MODIFY `id_struk` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `detail_struk`
+--
+ALTER TABLE `detail_struk`
+  ADD CONSTRAINT `ds_id_barang` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ds_id_struk` FOREIGN KEY (`id_struk`) REFERENCES `struk` (`id_struk`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `struk`
 --
 ALTER TABLE `struk`
-  ADD CONSTRAINT `id_barang` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `id_member` FOREIGN KEY (`id_member`) REFERENCES `member` (`id_member`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `id_pegawai` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `struk_id_pegawai` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

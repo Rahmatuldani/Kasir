@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f07a7b7-e451-4799-bc90-e9e4cc1745e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utama/cUtama.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utama/mBarang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utama/mPegawai.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utama/mStruk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utama/DetailStruk.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utama/vUtama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/vUtama.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vUtama.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kasir.sql" beforeDir="false" afterPath="$PROJECT_DIR$/kasir.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utama/cUtama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/cUtama.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utama/mPegawai.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/mPegawai.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utama/mStruk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/mStruk.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +135,11 @@
       <workItem from="1585866683290" duration="17000" />
       <workItem from="1585867261662" duration="2000" />
       <workItem from="1588944733838" duration="108000" />
-      <workItem from="1588944912449" duration="4143000" />
+      <workItem from="1588944912449" duration="4815000" />
+      <workItem from="1588950445601" duration="752000" />
+      <workItem from="1589012172206" duration="42000" />
+      <workItem from="1589386923067" duration="266000" />
+      <workItem from="1589435084909" duration="1694000" />
     </task>
     <servers />
   </component>
@@ -159,6 +159,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1588947521248" />
+    <state x="393" y="1" key="CommitChangelistDialog2" timestamp="1589435955178">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="393" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1589435955178" />
     <state x="523" y="148" key="DetectedRootsChooserDialog" timestamp="1584076523848">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -167,22 +171,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1584076519904" />
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1588947127576">
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1588950186402">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1588947127576" />
-    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1588947127576">
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1588950186402" />
+    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1588950186402">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1588947127576" />
-    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1588947127576">
+    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1588950186402" />
+    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1588950186402">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1588947127576" />
-    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1588947127576">
+    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1588950186402" />
+    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1588950186402">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1588947127576" />
+    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1588950186402" />
     <state x="249" y="7" key="SettingsEditor" timestamp="1588944743058">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

@@ -3,7 +3,7 @@ package Utama;
 import javax.swing.*;
 import java.sql.*;
 
-public class mStruk {
+public class DetailStruk {
     Connection connection;
     ResultSet resultSet;
     Statement statement;
@@ -14,7 +14,7 @@ public class mStruk {
         try {
             connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM struk WHERE id_struk = "+ id +" ");
+            resultSet = statement.executeQuery("SELECT * FROM detail_struk WHERE id_struk = "+ id +" ");
 
             struk[0][0] = resultSet.getString("id_struk");
             struk[0][1] = resultSet.getString("id_pegawai");
@@ -33,7 +33,7 @@ public class mStruk {
         try {
             connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
             statement = connection.createStatement();
-            statement.executeQuery("INSERT INTO struk VALUES('','"+ data[0][0] +"','"+ data[0][1] +"')");
+            statement.executeQuery("INSERT INTO detail_struk VALUES('"+ data[0][0] +"','"+ data[0][1] +"','"+ data[0][2] +"')");
             statement.close();
             connection.close();
         } catch (SQLException e){
