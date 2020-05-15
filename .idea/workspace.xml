@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f07a7b7-e451-4799-bc90-e9e4cc1745e2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Login/mLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Login/mLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/DetailStruk.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/DetailStruk.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/MVC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/MVC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/cUtama$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/cUtama$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/cUtama.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/cUtama.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/mBarang.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/mBarang.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/mPegawai.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/mPegawai.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/mStruk.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/mStruk.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login/mLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login/mLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utama/DetailStruk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/DetailStruk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utama/MVC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/MVC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utama/cUtama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/cUtama.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utama/mBarang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/mBarang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utama/mPegawai.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/mPegawai.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utama/mStruk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/mStruk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utama/Tambah.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/Tambah.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utama/vUtama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/vUtama.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +124,7 @@
       <workItem from="1589435084909" duration="2588000" />
       <workItem from="1589544160575" duration="10305000" />
       <workItem from="1589555227032" duration="6000" />
-      <workItem from="1589555306557" duration="11688000" />
+      <workItem from="1589555306557" duration="12383000" />
     </task>
     <servers />
   </component>
@@ -172,22 +156,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1589555898157" />
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1589567122896">
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1589567427607">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1589567122896" />
-    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1589567122896">
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1589567427607" />
+    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1589567427606">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1589567122896" />
-    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1589567122896">
+    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1589567427606" />
+    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1589567427606">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1589567122896" />
-    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1589567122896">
+    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1589567427606" />
+    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1589567427607">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1589567122896" />
+    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1589567427607" />
     <state x="249" y="7" key="SettingsEditor" timestamp="1589559878570">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

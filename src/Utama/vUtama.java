@@ -51,6 +51,19 @@ public class vUtama extends JFrame {
     JScrollPane BarangjScrollPane = new JScrollPane(barangJTable);
     JPanel bHeader = new JPanel();
     JPanel tBarang = new JPanel();
+    JButton tambah = new JButton("Tambah");
+    
+// Tambah Barang
+    JTextField nama_barang = new JTextField();
+    JTextField jenis_barang = new JTextField();
+    JTextField harga_barang = new JTextField();
+    JTextField stok_barang = new JTextField();
+    JLabel namaLabel = new JLabel("Nama Barang : ");
+    JLabel jenisLabel = new JLabel("Jenis Barang : ");
+    JLabel hargaLabel = new JLabel("Harga Barang : ");
+    JLabel stokLabel = new JLabel("Stok Barang : ");
+    JButton tambahBarang = new JButton("Tambah");
+    JButton editBarang = new JButton("Edit");
     
     public vUtama(){
         setTitle("Sistem Kasir");
