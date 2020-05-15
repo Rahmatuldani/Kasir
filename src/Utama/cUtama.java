@@ -14,8 +14,7 @@ public class cUtama {
     }
 
     public Object[][] findBarang(int id){
-        barang.Find_barang(id);
-        data = barang.barang;
+        data = barang.Find_barang(id);
         return data;
     }
 
@@ -53,9 +52,13 @@ public class cUtama {
 //    *End Bagian Pegawai
 
 //    *Start Bagian Struk
+    public Object[][] allStruk(){
+        data = struk.All_struk();
+        return data;
+    }
+
     public Object[][] findStruk(int id){
-        struk.Find_struk(id);
-        data = struk.struk;
+        data = struk.Find_struk(id);
         return data;
     }
 

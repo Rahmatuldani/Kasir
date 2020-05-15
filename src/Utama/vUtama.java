@@ -3,11 +3,13 @@ package Utama;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.text.*;
 
-public class vUtama extends JFrame{
+public class vUtama extends JFrame implements ActionListener {
     JTabbedPane tab = new JTabbedPane();
     JPanel pKasir = new JPanel();
     JPanel pBarang = new JPanel();
@@ -15,7 +17,8 @@ public class vUtama extends JFrame{
 
     cUtama controller = new cUtama();
     int no = 0;
-    Object[][] tdata = new Object[50][6];
+    Object[][] tdata = new Object[1][6];
+    Object[][] listbarang = new Object[1][8];
     
 //    Bagian Kasir
     JLabel lno = new JLabel("No Transaksi : ",SwingConstants.RIGHT);
@@ -59,6 +62,10 @@ public class vUtama extends JFrame{
         tab.addTab("Kasir",pKasir);
         tab.addTab("Barang",pBarang);
         tab.addTab("Laporan",pLaporan);
+
+        bTambah.addActionListener(this);
+        bHapus.addActionListener(this);
+        bBayar.addActionListener(this);
         
 //        Bagian Kasir
         pKasir.setLayout(null);
@@ -138,7 +145,7 @@ public class vUtama extends JFrame{
 //         Bagian Barang
         pBarang.setLayout(new BoxLayout(pBarang,BoxLayout.LINE_AXIS));
         String[] kolomBarang = {"Kode Item","Nama Barang","Jenis Barang","Harga","Stok","Aksi"};
-        Object[][] listbarang = controller.getBarang();
+        listbarang = controller.getBarang();
         JTable barangJTable = new JTable(listbarang,kolomBarang);
         JScrollPane BarangjScrollPane = new JScrollPane(barangJTable);
         
@@ -163,10 +170,23 @@ public class vUtama extends JFrame{
         
 //        Bagian Laporan
         pLaporan.setLayout(new BoxLayout(pLaporan,BoxLayout.LINE_AXIS));
-//        String[] kolomLaporan = {"Tanggal","ID Struk","Nama Kasir","Pendapatan"};
+        String[] kolomLaporan = {"Tanggal","ID Struk","Nama Kasir","Pendapatan"};
 //        String[][] liststruk = new String[readStruk()][4];
 //        JTable laporanJTable = new JTable(readStruk(liststruk),kolomLaporan);
 //        JScrollPane LaporanjScrollPane = new JScrollPane(laporanJTable);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        if (actionEvent.getSource() == bTambah){
+            setVisible(false);
+        }
+        if (actionEvent.getSource() == bHapus){
+            setVisible(false);
+        }
+        if (actionEvent.getSource() == bBayar){
+            setVisible(false);
+        }
     }
 
     public static void main(String[] args) {

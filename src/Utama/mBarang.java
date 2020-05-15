@@ -8,20 +8,20 @@ public class mBarang {
     ResultSet resultSet;
     Statement statement;
 
-    protected Object[][] barang = new Object[100][6];
+    protected Object[][] dbarang = new Object[1][6];
     public Object[][] All_barang(){
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM barang");
-            int p = 1;
+            int p = 0;
             while (resultSet.next()){
-                barang[p][0] = p;
-                barang[p][1] = resultSet.getString("id_barang");
-                barang[p][2] = resultSet.getString("nama_barang");
-                barang[p][3] = resultSet.getString("jenis_barang");
-                barang[p][4] = resultSet.getString("harga_barang");
-                barang[p][5] = resultSet.getString("stok_barang");
+                dbarang[p][0] = p+1;
+                dbarang[p][1] = resultSet.getString("id_barang");
+                dbarang[p][2] = resultSet.getString("nama_barang");
+                dbarang[p][3] = resultSet.getString("jenis_barang");
+                dbarang[p][4] = resultSet.getString("harga_barang");
+                dbarang[p][5] = resultSet.getString("stok_barang");
                 p++;
             }
             statement.close();
@@ -29,7 +29,7 @@ public class mBarang {
         } catch (SQLException e){
             JOptionPane.showMessageDialog(null,"Database tidak ada (barang/get)","Error",JOptionPane.ERROR_MESSAGE);
         }
-        return barang;
+        return dbarang;
     }
     
     public Object[][] Find_barang(int id){
@@ -38,11 +38,11 @@ public class mBarang {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM barang WHERE id_barang = "+ id +" ");
 
-                barang[0][0] = resultSet.getString("id_barang");
-                barang[0][1] = resultSet.getString("nama_barang");
-                barang[0][2] = resultSet.getString("jenis_barang");
-                barang[0][3] = resultSet.getString("harga_barang");
-                barang[0][4] = resultSet.getString("stok_barang");
+                dbarang[0][0] = resultSet.getString("id_barang");
+                dbarang[0][1] = resultSet.getString("nama_barang");
+                dbarang[0][2] = resultSet.getString("jenis_barang");
+                dbarang[0][3] = resultSet.getString("harga_barang");
+                dbarang[0][4] = resultSet.getString("stok_barang");
 
             statement.close();
             connection.close();
@@ -50,7 +50,7 @@ public class mBarang {
             JOptionPane.showMessageDialog(null,"Database tidak ada (barang/find)","Error",JOptionPane.ERROR_MESSAGE);
         }
 
-        return barang;
+        return dbarang;
     }
 
     public void Create_barang(Object[][] data){

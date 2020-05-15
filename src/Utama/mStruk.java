@@ -10,6 +10,30 @@ public class mStruk {
 
     protected Object[][] struk = new Object[1][5];
 
+    public Object[][] All_struk(){
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM struk" +
+                    "                               join detailstruk on struk.id_struk = detail_struk.id_struk" +
+                    "                               join pegawai on struk.id_pegawai = pegawai.id_pegawai");
+            int p = 0;
+            while (resultSet.next()){
+                struk[p][0] = p+1;
+                struk[p][1] = resultSet.getString("tanggal");
+                struk[p][2] = resultSet.getString("id_struk");
+                struk[p][3] = resultSet.getString("nama_pegawai");
+                struk[p][4] = resultSet.getInt("harga_barang") * resultSet.getInt("jumlah");
+                p++;
+            }
+            statement.close();
+            connection.close();
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null,"Database tidak ada (barang/get)","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        return struk;
+    }
+
     public Object[][] Find_struk(int id){
         try {
             connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
@@ -33,7 +57,7 @@ public class mStruk {
         try {
             connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
             statement = connection.createStatement();
-            statement.executeQuery("INSERT INTO struk VALUES('','"+ data[0][0] +"','"+ data[0][1] +"')");
+            statement.executeQuery("INSERT INTO struk VALUES('',"+ data[0][0] +","+ data[0][1] +")");
             statement.close();
             connection.close();
         } catch (SQLException e){
