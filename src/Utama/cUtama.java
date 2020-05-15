@@ -9,8 +9,7 @@ public class cUtama {
 
 //    *Start Bagian Barang
     public Object[][] getBarang(){
-        barang.All_barang();
-        data = barang.barang;
+        data = barang.All_barang();
         return data;
     }
 

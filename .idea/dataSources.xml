@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/praktikum</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="kasir@localhost" uuid="d7b3a0dd-a78a-439d-b64f-1c303854f99d">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/kasir</jdbc-url>
+    </data-source>
   </component>
 </project>

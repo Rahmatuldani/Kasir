@@ -2,31 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f07a7b7-e451-4799-bc90-e9e4cc1745e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Utama/DetailStruk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kasir.sql" beforeDir="false" afterPath="$PROJECT_DIR$/kasir.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utama/cUtama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/cUtama.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utama/DetailStruk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/DetailStruk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utama/mBarang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/mBarang.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utama/mPegawai.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/mPegawai.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utama/mStruk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/mStruk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utama/vUtama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/vUtama.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -139,7 +126,8 @@
       <workItem from="1588950445601" duration="752000" />
       <workItem from="1589012172206" duration="42000" />
       <workItem from="1589386923067" duration="266000" />
-      <workItem from="1589435084909" duration="1694000" />
+      <workItem from="1589435084909" duration="2588000" />
+      <workItem from="1589544160575" duration="2186000" />
     </task>
     <servers />
   </component>
@@ -151,10 +139,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="206" y="274" key="#SQL_Dialects/0.0.1536.864@0.0.1536.864" timestamp="1588947679492" />
-    <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584077117526">
+    <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589546227782">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1584077117526" />
+    <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1589546227782" />
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588947521248">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -171,22 +159,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1584076519904" />
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1588950186402">
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1589546330623">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1588950186402" />
-    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1588950186402">
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1589546330623" />
+    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1589546330623">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1588950186402" />
-    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1588950186402">
+    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1589546330623" />
+    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1589546330623">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1588950186402" />
-    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1588950186402">
+    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1589546330623" />
+    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1589546330623">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1588950186402" />
+    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1589546330623" />
     <state x="249" y="7" key="SettingsEditor" timestamp="1588944743058">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

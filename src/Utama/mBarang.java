@@ -11,30 +11,30 @@ public class mBarang {
     protected Object[][] barang = new Object[100][6];
     public Object[][] All_barang(){
         try {
-            connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM barang");
-            int p = 0;
+            int p = 1;
             while (resultSet.next()){
-                barang[p][0] = resultSet.getString("id_barang");
-                barang[p][1] = resultSet.getString("nama_barang");
-                barang[p][2] = resultSet.getString("jenis_barang");
-                barang[p][3] = resultSet.getString("harga_barang");
-                barang[p][4] = resultSet.getString("stok_barang");
+                barang[p][0] = p;
+                barang[p][1] = resultSet.getString("id_barang");
+                barang[p][2] = resultSet.getString("nama_barang");
+                barang[p][3] = resultSet.getString("jenis_barang");
+                barang[p][4] = resultSet.getString("harga_barang");
+                barang[p][5] = resultSet.getString("stok_barang");
                 p++;
             }
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (barang/get)","Error",JOptionPane.ERROR_MESSAGE);
         }
-        
         return barang;
     }
     
     public Object[][] Find_barang(int id){
         try {
-            connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM barang WHERE id_barang = "+ id +" ");
 
@@ -47,7 +47,7 @@ public class mBarang {
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (barang/find)","Error",JOptionPane.ERROR_MESSAGE);
         }
 
         return barang;
@@ -55,37 +55,37 @@ public class mBarang {
 
     public void Create_barang(Object[][] data){
         try {
-            connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
             statement = connection.createStatement();
             statement.executeQuery("INSERT INTO barang VALUES('','"+ data[0][0] +"','"+ data[0][1] +"',"+ data[0][2] +","+ data[0][3] +")");
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (barang/create)","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
     public void Update_barang(Object[][] data, int id){
         try {
-            connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
             statement = connection.createStatement();
             statement.executeUpdate("UPDATE barang SET nama_barang = '"+ data[0][0] +"', jenis_barang = '"+ data[0][1] +"', harga_barang = "+ data[0][2] +", stok_barang = "+ data[0][3] +" WHERE id_barang = "+ id +"");
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (barang/update)","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
     public void Delete_barang(int id){
         try {
-            connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
             statement = connection.createStatement();
             statement.executeQuery("DELETE FROM barang WHERE id_barang = "+ id +"");
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (barang/delete)","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 }

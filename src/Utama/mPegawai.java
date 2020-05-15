@@ -25,7 +25,7 @@ public class mPegawai {
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (pegawai/find)","Error",JOptionPane.ERROR_MESSAGE);
         }
 
         return pegawai;
@@ -39,7 +39,7 @@ public class mPegawai {
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (pegawai/create)","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -51,7 +51,7 @@ public class mPegawai {
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (pegawai/update)","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -63,7 +63,7 @@ public class mPegawai {
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (pegawai/delete)","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 }

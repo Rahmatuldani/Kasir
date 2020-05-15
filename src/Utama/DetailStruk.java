@@ -23,7 +23,7 @@ public class DetailStruk {
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (detailstruk/find)","Error",JOptionPane.ERROR_MESSAGE);
         }
 
         return struk;
@@ -37,7 +37,7 @@ public class DetailStruk {
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (detailstruk/create)","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 }

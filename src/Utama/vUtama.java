@@ -2,14 +2,9 @@ package Utama;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableColumnModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.*;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.sql.*;
 import java.text.*;
 
 public class vUtama extends JFrame{
@@ -17,11 +12,10 @@ public class vUtama extends JFrame{
     JPanel pKasir = new JPanel();
     JPanel pBarang = new JPanel();
     JPanel pLaporan = new JPanel();
-    
-//    Koneksi
-    Connection connection;
-    Statement statement;
-    ResultSet resultSet;
+
+    cUtama controller = new cUtama();
+    int no = 0;
+    Object[][] tdata = new Object[50][6];
     
 //    Bagian Kasir
     JLabel lno = new JLabel("No Transaksi : ",SwingConstants.RIGHT);
@@ -35,7 +29,7 @@ public class vUtama extends JFrame{
     JTextField fkasir = new JTextField(30);
     JTextField fkode = new JTextField(15);
     JTextField fjum = new JTextField(7);
-    JTextField ftotal = new JTextField("12.000",30);
+    JTextField ftotal = new JTextField("0",30);
 
     JButton bTambah = new JButton("Tambah");
     JButton bEdit = new JButton("Edit");
@@ -45,9 +39,6 @@ public class vUtama extends JFrame{
     JPanel data = new JPanel();
     JPanel dbarang = new JPanel();
     String[] column = {"No","Kode Item","Nama Barang","Harga","Jumlah","Total"};
-    int a = 12000;
-    int b = 20;
-    Object[][] tdata = {{"1","123","pensil",a,b,new Integer(a*b)}};
     JTable table = new JTable(tdata,column);
     DefaultTableCellRenderer righttable = new DefaultTableCellRenderer();
     JScrollPane jScrollPane = new JScrollPane(table);
@@ -147,8 +138,8 @@ public class vUtama extends JFrame{
 //         Bagian Barang
         pBarang.setLayout(new BoxLayout(pBarang,BoxLayout.LINE_AXIS));
         String[] kolomBarang = {"Kode Item","Nama Barang","Jenis Barang","Harga","Stok","Aksi"};
-        String[][] listbarang = new String[readBarang()][6];
-        JTable barangJTable = new JTable(readBarang(listbarang),kolomBarang);
+        Object[][] listbarang = controller.getBarang();
+        JTable barangJTable = new JTable(listbarang,kolomBarang);
         JScrollPane BarangjScrollPane = new JScrollPane(barangJTable);
         
 //        Setting Tabel
@@ -172,177 +163,11 @@ public class vUtama extends JFrame{
         
 //        Bagian Laporan
         pLaporan.setLayout(new BoxLayout(pLaporan,BoxLayout.LINE_AXIS));
-        String[] kolomLaporan = {"Tanggal","ID Struk","Nama Kasir","Pendapatan"};
-        String[][] liststruk = new String[readStruk()][4];
-        JTable laporanJTable = new JTable(readStruk(liststruk),kolomLaporan);
-        JScrollPane LaporanjScrollPane = new JScrollPane(laporanJTable);
+//        String[] kolomLaporan = {"Tanggal","ID Struk","Nama Kasir","Pendapatan"};
+//        String[][] liststruk = new String[readStruk()][4];
+//        JTable laporanJTable = new JTable(readStruk(liststruk),kolomLaporan);
+//        JScrollPane LaporanjScrollPane = new JScrollPane(laporanJTable);
     }
-    
-    
-    //pindahin ke controller
-    public int readBarang(){
-        int i=0;
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir", "root", "");
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM barang");
-            while (resultSet.next()){
-                i=i+1;
-            }
-            statement.close();
-            connection.close();
-        } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak terkoneksi", "Database Error", JOptionPane.ERROR_MESSAGE);
-        }
-        return i;
-    }
-      
-    public String[][] readBarang(String listbarang[][]){
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir", "root", "");
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM barang");
-            int i=0;
-            while (resultSet.next()){
-                listbarang[i][0] = resultSet.getString("id_barang");
-                listbarang[i][1] = resultSet.getString("nama_barang");
-                listbarang[i][2] = resultSet.getString("jenis_barang");
-                listbarang[i][3] = resultSet.getString("harga_barang");
-                listbarang[i][4] = resultSet.getString("stok");
-                listbarang[i][5] = "null";
-                i=i+1;
-            }
-            statement.close();
-            connection.close();
-        } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak terkoneksi", "Database Error", JOptionPane.ERROR_MESSAGE);
-        }
-    return listbarang;
-    }
-    
-    public void insertBarang(String id_barang, String nama_barang, String jenis_barang, long harga_barang,int stok_barang){
-        try{
-        String query = "INSERT INTO barang values('"+id_barang+"','"+nama_barang+"','"+jenis_barang+"','"+harga_barang+"','"+stok_barang+"')";
-        statement = (Statement) koneksi.createStatement();
-        statement.executeUpdate(query); //execute querynya
-            System.out.println("Berhasil ditambahkan");
-            JOptionPane.showMessageDialog(null, "Data Berhasil");
-        statement.close();
-        connection.close();    
-        } catch (Exception sql) {
-            System.out.println(sql.getMessage());   
-            JOptionPane.showMessageDialog(null, sql.getMessage());
-        }
-    }
-    
-    public void updateBarang(String id_barang, String nama_barang, String jenis_barang, long harga_barang,int stok_barang){
-        try {
-            String query = "Update `barang` nama_barang ='"+nama_barang+"',"
-                    + "jenis_barang = '"+jenis_barang+"', "
-                    + "harga_barang='"+harga_barang+", "
-                    + "stok_barang='"+stok_barang+"' "
-                    + "where id_barang = '"+id_barang+"'";
-            statement = (Statement) koneksi.createStatement();
-            statement.executeUpdate(query); //execute querynya
-            statement.close();
-            connection.close();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            System.out.println("SQL Error");
-        }
-    }
-    
-    public void deleteBarang(String id_barang){
-        try{
-            String query = "DELETE FROM `barang` WHERE `id_barang` = '"+id_barang+"'";
-            statement = koneksi.createStatement();
-            statement.executeUpdate(query);
-            JOptionPane.showMessageDialog(null, "Berhasil Dihapus");
-            statement.close();
-            connection.close();
-        }catch(SQLException sql) {
-            System.out.println(sql.getMessage());
-        }
-    }
-    
-    public int readStruk(){
-        int i=0;
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir", "root", "");
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT struk.id_struk,struk.id_pegawai,tanggal,sum(jumlah) "
-                    + "FROM struk inner join detailstruk on struk.id_struk = detailstruk_id.struk "
-                    + "inner join pegawai on struk.id_pegawai = pegawai.id_pegawai group by struk.id_struk");
-            while (resultSet.next()){
-                i=i+1;
-            }
-            statement.close();
-            connection.close();
-        } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak terkoneksi", "Database Error", JOptionPane.ERROR_MESSAGE);
-        }
-        return i;
-    }
-    
-    public String[][] readStruk(String listbarang[][]){
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir", "root", "");
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT struk.id_struk,struk.id_pegawai,tanggal,sum(jumlah) AS pendapatan "
-                    + "FROM struk inner join detailstruk on struk.id_struk = detailstruk_id.struk "
-                    + "inner join pegawai on struk.id_pegawai = pegawai.id_pegawai group by struk.id_struk");
-            int i=0;
-            while (resultSet.next()){
-                listbarang[i][0] = resultSet.getString("id_struk");
-                listbarang[i][1] = resultSet.getString("id_pegawai");
-                listbarang[i][2] = resultSet.getString("tanggal");
-                listbarang[i][3] = resultSet.getString("pendapatan");
-                i=i+1;
-            }
-            statement.close();
-            connection.close();
-        } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak terkoneksi", "Database Error", JOptionPane.ERROR_MESSAGE);
-        }
-    return listbarang;
-    }
-    
-    //untuk membuat struk dan detail struk
-    public void insertStruk(String id_struk,String nama_pegawai, String tanggal, String[][] dataStruk){
-        try{
-        String queryStruk = "INSERT INTO struk values('"+id_struk+"','"+id_pegawai+"','"+tanggal+"')";
-        statement = koneksi.createStatement();
-        statement.executeQuery(queryStruk);
-        while(isidata){ //isi dari tabel transaksi
-            String query = "INSERT INTO detail_struk values('"+id_barang+",'"+id_struk+"','"+jumlah+"')";
-            //id_barang dan jumlah didapat dari tabel transaksi
-        statement.close();
-        connection.close();    
-        }   
-        }catch(SQLException e){
-            System.out.println(e.getMessage());
-            System.out.println("SQL Error");
-        }
-    }
-    
-    public String getIdPegawai(String nama_pegawai){
-        //Mengambil salah satu nama pegawai
-        try{
-            String query = "SELECT * from pegawai where nama_pegawai = '"+nama_pegawai+"'";
-            statement = koneksi.createStatement();
-            ResultSet resultSet = statement.executeUpdate(query); //execute querynya
-            String id = resultSet.getString("id_pegawai");
-        }catch(SQLException sql){
-            System.out.println(sql.getMessage());   
-            JOptionPane.showMessageDialog(null, sql.getMessage());
-            return null;
-        }
-        return id;
-    }
-    
-    public void crud(){
-    
-}
 
     public static void main(String[] args) {
         new vUtama();
