@@ -10,6 +10,7 @@ import java.util.TimerTask;
 import java.text.*;
 
 public class vUtama extends JFrame implements ActionListener {
+    JFrame currentFrame;
     JTabbedPane tab = new JTabbedPane();
     JPanel pKasir = new JPanel();
     JPanel pBarang = new JPanel();
@@ -51,6 +52,23 @@ public class vUtama extends JFrame implements ActionListener {
 //  Bagian Barang
     JPanel bHeader = new JPanel();
     JPanel tBarang = new JPanel();
+    String[] kolomBarang = {"Kode Item","Nama Barang","Jenis Barang","Harga","Stok","Edit","Hapus"};
+    Object[][] listbarang = controller.getBarang();
+    JTable barangJTable = new JTable(listbarang,kolomBarang);
+    JScrollPane BarangjScrollPane = new JScrollPane(barangJTable);
+    JButton tambah = new JButton("Tambah");
+    
+// Tambah Barang
+    JTextField nama_barang = new JTextField();
+    JTextField jenis_barang = new JTextField();
+    JTextField harga_barang = new JTextField();
+    JTextField stok_barang = new JTextField();
+    JLabel namaLabel = new JLabel("Nama Barang : ");
+    JLabel jenisLabel = new JLabel("Jenis Barang : ");
+    JLabel hargaLabel = new JLabel("Harga Barang : ");
+    JLabel stokLabel = new JLabel("Stok Barang : ");
+    JButton tambahBarang = new JButton("Tambah");
+    JButton editBarang = new JButton("Edit");
     
     public vUtama(){
         setTitle("Sistem Kasir");
@@ -174,6 +192,61 @@ public class vUtama extends JFrame implements ActionListener {
 //        String[][] liststruk = new String[readStruk()][4];
 //        JTable laporanJTable = new JTable(readStruk(liststruk),kolomLaporan);
 //        JScrollPane LaporanjScrollPane = new JScrollPane(laporanJTable);
+    }
+    
+    //FRAME TAMBAH DAN EDIT
+    public JFrame Tambah(){
+        setTitle("Tambah Barang");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        setLayout(null);
+        setSize(400,200);
+        add(namaLabel);
+        add(jenisLabel);
+        add(stokLabel);
+        add(hargaLabel);
+        add(nama_barang);
+        add(harga_barang);
+        add(jenis_barang);
+        add(stok_barang);
+        add(tambahBarang);
+        namaLabel.setBounds(20,20,100,20);
+        jenisLabel.setBounds(20,40,100,20);
+        stokLabel.setBounds(20,60,100,20);
+        hargaLabel.setBounds(20,80,100,20);
+        nama_barang.setBounds(150,20,150,20);
+        harga_barang.setBounds(150,40,150,20);
+        jenis_barang.setBounds(150,60,150,20);
+        stok_barang.setBounds(150,80,150,20);
+        tambahBarang.setBounds(100,120,150,20);
+        return currentFrame;
+    }
+    
+    public JFrame Edit(){
+        setTitle("Edit Barang");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        setLayout(null);
+        setSize(400,200);
+        add(namaLabel);
+        add(jenisLabel);
+        add(stokLabel);
+        add(hargaLabel);
+        add(nama_barang);
+        add(harga_barang);
+        add(jenis_barang);
+        add(stok_barang);
+        add(editBarang);
+        namaLabel.setBounds(20,20,100,20);
+        jenisLabel.setBounds(20,40,100,20);
+        stokLabel.setBounds(20,60,100,20);
+        hargaLabel.setBounds(20,80,100,20);
+        nama_barang.setBounds(150,20,150,20);
+        harga_barang.setBounds(150,40,150,20);
+        jenis_barang.setBounds(150,60,150,20);
+        stok_barang.setBounds(150,80,150,20);
+        editBarang.setBounds(100,120,150,20);
+        return currentFrame;
     }
 
     @Override
