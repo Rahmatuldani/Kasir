@@ -8,7 +8,12 @@ public class mBarang {
     ResultSet resultSet;
     Statement statement;
 
-    protected Object[][] dbarang = new Object[1][6];
+    protected Object[][] dbarang = new Object[get_data()][6];
+    protected Object[] nbarang = new Object[get_data()];
+
+    mBarang(){
+        All_barang();
+    }
     public Object[][] All_barang(){
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
@@ -19,6 +24,7 @@ public class mBarang {
                 dbarang[p][0] = p+1;
                 dbarang[p][1] = resultSet.getString("id_barang");
                 dbarang[p][2] = resultSet.getString("nama_barang");
+                nbarang[p] = resultSet.getString("nama_barang");
                 dbarang[p][3] = resultSet.getString("jenis_barang");
                 dbarang[p][4] = resultSet.getString("harga_barang");
                 dbarang[p][5] = resultSet.getString("stok_barang");
@@ -32,22 +38,25 @@ public class mBarang {
         return dbarang;
     }
     
-    public Object[][] Find_barang(int id){
+    public Object[][] Find_barang(int id, int no, int jumlah){
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM barang WHERE id_barang = "+ id +" ");
-
-                dbarang[0][0] = resultSet.getString("id_barang");
-                dbarang[0][1] = resultSet.getString("nama_barang");
-                dbarang[0][2] = resultSet.getString("jenis_barang");
-                dbarang[0][3] = resultSet.getString("harga_barang");
-                dbarang[0][4] = resultSet.getString("stok_barang");
+            int p = 0;
+            while (resultSet.next()) {
+                dbarang[p][0] = no;
+                dbarang[p][1] = resultSet.getString("id_barang");
+                dbarang[p][2] = resultSet.getString("nama_barang");
+                dbarang[p][3] = resultSet.getString("harga_barang");
+                dbarang[p][4] = jumlah;
+                dbarang[p][5] = resultSet.getInt("harga_barang") * jumlah;
+            }
 
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada (barang/find)","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
 
         return dbarang;
@@ -87,5 +96,22 @@ public class mBarang {
         } catch (SQLException e){
             JOptionPane.showMessageDialog(null,"Database tidak ada (barang/delete)","Error",JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    public int get_data(){
+        int jum = 0;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM barang");
+            while (resultSet.next()){
+                jum++;
+            }
+            statement.close();
+            connection.close();
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null,"Database tidak ada (barang/get)","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        return jum;
     }
 }

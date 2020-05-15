@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f07a7b7-e451-4799-bc90-e9e4cc1745e2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utama/MVC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kasir.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Kasir.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Login/mLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Login/mLogin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/cUtama.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/cUtama.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/mBarang.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/mBarang.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/mStruk.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/mStruk.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kasir/Utama/vUtama.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login/mLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login/mLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utama/cUtama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/cUtama.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utama/mBarang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/mBarang.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utama/mStruk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utama/mStruk.java" afterDir="false" />
@@ -45,7 +49,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="221" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mysql-connector-java-5.1.48" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../praktikum/Belajar" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -129,7 +133,9 @@
       <workItem from="1589012172206" duration="42000" />
       <workItem from="1589386923067" duration="266000" />
       <workItem from="1589435084909" duration="2588000" />
-      <workItem from="1589544160575" duration="6135000" />
+      <workItem from="1589544160575" duration="10305000" />
+      <workItem from="1589555227032" duration="6000" />
+      <workItem from="1589555306557" duration="5145000" />
     </task>
     <servers />
   </component>
@@ -157,29 +163,29 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="523" y="148" key="DetectedRootsChooserDialog/0.0.1536.864@0.0.1536.864" timestamp="1589547359690" />
-    <state x="473" y="174" key="FileChooserDialogImpl" timestamp="1589547357136">
+    <state x="473" y="174" key="FileChooserDialogImpl" timestamp="1589555898157">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1589547357136" />
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1589547879692">
+    <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1589555898157" />
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1589560479358">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1589547879692" />
-    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1589547879692">
+    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1589560479358" />
+    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1589560479358">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1589547879692" />
-    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1589547879692">
+    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1589560479358" />
+    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1589560479357">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1589547879692" />
-    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1589547879692">
+    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1589560479357" />
+    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1589560479358">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1589547879692" />
-    <state x="249" y="7" key="SettingsEditor" timestamp="1589547365819">
+    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1589560479358" />
+    <state x="249" y="7" key="SettingsEditor" timestamp="1589559878570">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="249" y="7" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1589547365819" />
+    <state x="249" y="7" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1589559878570" />
   </component>
 </project>

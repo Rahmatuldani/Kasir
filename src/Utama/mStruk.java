@@ -8,7 +8,7 @@ public class mStruk {
     ResultSet resultSet;
     Statement statement;
 
-    protected Object[][] struk = new Object[1][5];
+    protected Object[][] struk = new Object[get_data()][5];
 
     public Object[][] All_struk(){
         try {
@@ -63,5 +63,22 @@ public class mStruk {
         } catch (SQLException e){
             JOptionPane.showMessageDialog(null,"Database tidak ada (struk/create)","Error",JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    public int get_data(){
+        int jum = 0;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM struk");
+            while (resultSet.next()){
+                jum++;
+            }
+            statement.close();
+            connection.close();
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null,"Database tidak ada (barang/get)","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        return jum;
     }
 }

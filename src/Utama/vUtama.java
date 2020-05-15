@@ -2,23 +2,19 @@ package Utama;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.text.*;
 
-public class vUtama extends JFrame implements ActionListener {
+public class vUtama extends JFrame {
+    cUtama controller;
     JTabbedPane tab = new JTabbedPane();
     JPanel pKasir = new JPanel();
     JPanel pBarang = new JPanel();
     JPanel pLaporan = new JPanel();
-
-    cUtama controller = new cUtama();
-    int no = 0;
-    Object[][] tdata = new Object[1][6];
-    Object[][] listbarang = new Object[1][8];
+    int no = 1;
     
 //    Bagian Kasir
     JLabel lno = new JLabel("No Transaksi : ",SwingConstants.RIGHT);
@@ -42,17 +38,21 @@ public class vUtama extends JFrame implements ActionListener {
     JPanel data = new JPanel();
     JPanel dbarang = new JPanel();
     String[] column = {"No","Kode Item","Nama Barang","Harga","Jumlah","Total"};
-    JTable table = new JTable(tdata,column);
+    DefaultTableModel tableModel = new DefaultTableModel(column,0);
+    JTable table = new JTable(tableModel);
     DefaultTableCellRenderer righttable = new DefaultTableCellRenderer();
     JScrollPane jScrollPane = new JScrollPane(table);
 //    End Bagian Kasir
-
     
 //  Bagian Barang
+    String[] kolomBarang = {"No","Kode Item","Nama Barang","Jenis Barang","Harga","Stok"};
+    DefaultTableModel tableModel1 = new DefaultTableModel(kolomBarang,0);
+    JTable barangJTable = new JTable(tableModel1);
+    JScrollPane BarangjScrollPane = new JScrollPane(barangJTable);
     JPanel bHeader = new JPanel();
     JPanel tBarang = new JPanel();
     
-    public vUtama(){
+    vUtama(){
         setTitle("Sistem Kasir");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setExtendedState(MAXIMIZED_BOTH);
@@ -63,10 +63,6 @@ public class vUtama extends JFrame implements ActionListener {
         tab.addTab("Barang",pBarang);
         tab.addTab("Laporan",pLaporan);
 
-        bTambah.addActionListener(this);
-        bHapus.addActionListener(this);
-        bBayar.addActionListener(this);
-        
 //        Bagian Kasir
         pKasir.setLayout(null);
         dbarang.setLayout(new FlowLayout(FlowLayout.LEADING,30,3));
@@ -144,10 +140,6 @@ public class vUtama extends JFrame implements ActionListener {
 
 //         Bagian Barang
         pBarang.setLayout(new BoxLayout(pBarang,BoxLayout.LINE_AXIS));
-        String[] kolomBarang = {"Kode Item","Nama Barang","Jenis Barang","Harga","Stok","Aksi"};
-        listbarang = controller.getBarang();
-        JTable barangJTable = new JTable(listbarang,kolomBarang);
-        JScrollPane BarangjScrollPane = new JScrollPane(barangJTable);
         
 //        Setting Tabel
         barangJTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -171,25 +163,66 @@ public class vUtama extends JFrame implements ActionListener {
 //        Bagian Laporan
         pLaporan.setLayout(new BoxLayout(pLaporan,BoxLayout.LINE_AXIS));
         String[] kolomLaporan = {"Tanggal","ID Struk","Nama Kasir","Pendapatan"};
-//        String[][] liststruk = new String[readStruk()][4];
-//        JTable laporanJTable = new JTable(readStruk(liststruk),kolomLaporan);
-//        JScrollPane LaporanjScrollPane = new JScrollPane(laporanJTable);
+        DefaultTableModel tableModel2 = new DefaultTableModel(kolomLaporan,0);
+        JTable laporanJTable = new JTable(tableModel2);
+        JScrollPane LaporanjScrollPane = new JScrollPane(laporanJTable);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent actionEvent) {
-        if (actionEvent.getSource() == bTambah){
-            setVisible(false);
-        }
-        if (actionEvent.getSource() == bHapus){
-            setVisible(false);
-        }
-        if (actionEvent.getSource() == bBayar){
-            setVisible(false);
-        }
+    public JFrame Tambah(){
+        setTitle("Tambah Barang");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        setLayout(null);
+        setSize(400,200);
+        add(namaLabel);
+        add(jenisLabel);
+        add(stokLabel);
+        add(hargaLabel);
+        add(nama_barang);
+        add(harga_barang);
+        add(jenis_barang);
+        add(stok_barang);
+        add(tambahBarang);
+        namaLabel.setBounds(20,20,100,20);
+        jenisLabel.setBounds(20,40,100,20);
+        stokLabel.setBounds(20,60,100,20);
+        hargaLabel.setBounds(20,80,100,20);
+        nama_barang.setBounds(150,20,150,20);
+        harga_barang.setBounds(150,40,150,20);
+        jenis_barang.setBounds(150,60,150,20);
+        stok_barang.setBounds(150,80,150,20);
+        tambahBarang.setBounds(100,120,150,20);
+        return currentFrame;
+    }
+
+    public JFrame Edit(){
+        setTitle("Edit Barang");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        setLayout(null);
+        setSize(400,200);
+        add(namaLabel);
+        add(jenisLabel);
+        add(stokLabel);
+        add(hargaLabel);
+        add(nama_barang);
+        add(harga_barang);
+        add(jenis_barang);
+        add(stok_barang);
+        add(editBarang);
+        namaLabel.setBounds(20,20,100,20);
+        jenisLabel.setBounds(20,40,100,20);
+        stokLabel.setBounds(20,60,100,20);
+        hargaLabel.setBounds(20,80,100,20);
+        nama_barang.setBounds(150,20,150,20);
+        harga_barang.setBounds(150,40,150,20);
+        jenis_barang.setBounds(150,60,150,20);
+        stok_barang.setBounds(150,80,150,20);
+        editBarang.setBounds(100,120,150,20);
+        return currentFrame;
     }
 
     public static void main(String[] args) {
-        new vUtama();
+        new MVC();
     }
 }

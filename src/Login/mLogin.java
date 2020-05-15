@@ -2,6 +2,7 @@ package Login;
 
 import javax.swing.*;
 import java.sql.*;
+import Utama.*;
 
 public class mLogin {
     private String id;
@@ -59,7 +60,7 @@ public class mLogin {
             if (data[0] == null){
                 JOptionPane.showMessageDialog(null,"ID tidak ditemukan", "Database Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, data[0] + " - " + data[1] + " - " + data[2] + " - " + data[3], "Database", JOptionPane.INFORMATION_MESSAGE);
+//                new vUtama();
             }
             statement.close();
             connection.close();

@@ -1,79 +1,32 @@
 package Utama;
 
-public class cUtama {
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+
+public class cUtama extends WindowAdapter {
+    vUtama view;
     mBarang barang = new mBarang();
     mStruk struk = new mStruk();
     DetailStruk detailStruk = new DetailStruk();
     mPegawai pegawai = new mPegawai();
-    Object[][] data = new Object[100][6];
+    Object[][] data = new Object[2][6];
 
-//    *Start Bagian Barang
-    public Object[][] getBarang(){
-        data = barang.All_barang();
-        return data;
-    }
+    cUtama(vUtama view1){
+        view = view1;
 
-    public Object[][] findBarang(int id){
-        data = barang.Find_barang(id);
-        return data;
-    }
+        view.barangJTable.setModel((new JTable(barang.All_barang(),view.kolomBarang)).getModel());
 
-    public void createBarang(Object[][] data){
-        barang.Create_barang(data);
+        view.bTambah.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                int kode = Integer.parseInt(view.fkode.getText());
+//                JOptionPane.showMessageDialog(null,kode,"kode",JOptionPane.INFORMATION_MESSAGE);
+                data = barang.Find_barang(kode,view.no+1,Integer.parseInt(view.fjum.getText()));
+                view.table.setModel((new JTable(data,view.column)).getModel());
+                view.no++;
+            }
+        });
     }
-
-    public void updateBarang(Object[][] data, int id){
-        barang.Update_barang(data,id);
-    }
-
-    public void deleteBarang(int id){
-        barang.Delete_barang(id);
-    }
-//    *End Bagian Barang
-
-//    *Start Bagian Pegawai
-    public Object[][] findPegawai(int id){
-        pegawai.Find_pegawai(id);
-        data = pegawai.pegawai;
-        return data;
-    }
-
-    public void createPegawai(Object[][] data){
-        pegawai.Create_pegawai(data);
-    }
-
-    public void updatePegawai(Object[][] data, int id){
-        pegawai.Update_pegawai(data,id);
-    }
-
-    public void deletePegawai(int id){
-        pegawai.Delete_pegawai(id);
-    }
-//    *End Bagian Pegawai
-
-//    *Start Bagian Struk
-    public Object[][] allStruk(){
-        data = struk.All_struk();
-        return data;
-    }
-
-    public Object[][] findStruk(int id){
-        data = struk.Find_struk(id);
-        return data;
-    }
-
-    public void createStruk(Object[][] data){
-        struk.Create_struk(data);
-    }
-
-    public Object[][] findDetaiStruk(int id){
-        detailStruk.Find_struk(id);
-        data = detailStruk.struk;
-        return data;
-    }
-
-    public void createDetailStruk(Object[][] data){
-        detailStruk.Create_struk(data);
-    }
-//    *End Bagian Struk
 }
