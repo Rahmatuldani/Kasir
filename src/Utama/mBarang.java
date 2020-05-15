@@ -9,6 +9,7 @@ public class mBarang {
     Statement statement;
 
     protected Object[][] dbarang = new Object[get_data()][6];
+    protected Object[] fbarang = new Object[6];
     protected Object[] nbarang = new Object[get_data()];
 
     mBarang(){
@@ -38,19 +39,18 @@ public class mBarang {
         return dbarang;
     }
     
-    public Object[][] Find_barang(int id, int no, int jumlah){
+    public Object[] Find_barang(int id, int no, int jumlah){
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM barang WHERE id_barang = "+ id +" ");
-            int p = 0;
             while (resultSet.next()) {
-                dbarang[p][0] = no;
-                dbarang[p][1] = resultSet.getString("id_barang");
-                dbarang[p][2] = resultSet.getString("nama_barang");
-                dbarang[p][3] = resultSet.getString("harga_barang");
-                dbarang[p][4] = jumlah;
-                dbarang[p][5] = resultSet.getInt("harga_barang") * jumlah;
+                fbarang[0] = no;
+                fbarang[1] = resultSet.getString("id_barang");
+                fbarang[2] = resultSet.getString("nama_barang");
+                fbarang[3] = resultSet.getString("harga_barang");
+                fbarang[4] = jumlah;
+                fbarang[5] = resultSet.getInt("harga_barang") * jumlah;
             }
 
             statement.close();
@@ -59,7 +59,7 @@ public class mBarang {
             JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
 
-        return dbarang;
+        return fbarang;
     }
 
     public void Create_barang(Object[][] data){

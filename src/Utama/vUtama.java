@@ -14,7 +14,7 @@ public class vUtama extends JFrame {
     JPanel pKasir = new JPanel();
     JPanel pBarang = new JPanel();
     JPanel pLaporan = new JPanel();
-    int no = 1;
+    int no = 0;
     
 //    Bagian Kasir
     JLabel lno = new JLabel("No Transaksi : ",SwingConstants.RIGHT);
@@ -22,10 +22,10 @@ public class vUtama extends JFrame {
     JLabel lkasir = new JLabel("Kasir : ",SwingConstants.RIGHT);
     JLabel lkode = new JLabel("Kode Item : ",SwingConstants.RIGHT);
     JLabel ljum = new JLabel("Jumlah : ",SwingConstants.RIGHT);
-
+    JTextField fkasir = new JTextField(30);
     JTextField fno = new JTextField(30);
     JTextField ftanggal = new JTextField(30);
-    JTextField fkasir = new JTextField(30);
+
     JTextField fkode = new JTextField(15);
     JTextField fjum = new JTextField(7);
     JTextField ftotal = new JTextField("0",30);
@@ -52,7 +52,7 @@ public class vUtama extends JFrame {
     JPanel bHeader = new JPanel();
     JPanel tBarang = new JPanel();
     
-    vUtama(){
+    public vUtama(){
         setTitle("Sistem Kasir");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setExtendedState(MAXIMIZED_BOTH);
@@ -223,6 +223,6 @@ public class vUtama extends JFrame {
 //    }
 
     public static void main(String[] args) {
-        new MVC();
+        new MVC(123180027);
     }
 }

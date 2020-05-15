@@ -29,11 +29,11 @@ public class DetailStruk {
         return struk;
     }
 
-    public void Create_struk(Object[][] data){
+    public void Create_struk(int id_barang, int id_struk, int jumlah){
         try {
             connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
             statement = connection.createStatement();
-            statement.executeQuery("INSERT INTO detail_struk VALUES('"+ data[0][0] +"','"+ data[0][1] +"','"+ data[0][2] +"')");
+            statement.executeQuery("INSERT INTO detail_struk VALUES("+ id_barang +","+ id_struk +","+ jumlah +")");
             statement.close();
             connection.close();
         } catch (SQLException e){

@@ -1,6 +1,8 @@
 package Utama;
 
 public class MVC {
-    vUtama view = new vUtama();
-    cUtama controller = new cUtama(view);
+    public MVC(int id) {
+        vUtama view = new vUtama();
+        cUtama controller = new cUtama(view,id);
+    }
 }

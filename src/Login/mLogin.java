@@ -60,7 +60,7 @@ public class mLogin {
             if (data[0] == null){
                 JOptionPane.showMessageDialog(null,"ID tidak ditemukan", "Database Error", JOptionPane.ERROR_MESSAGE);
             } else {
-//                new vUtama();
+                new MVC(Integer.parseInt(data[0]));
             }
             statement.close();
             connection.close();
