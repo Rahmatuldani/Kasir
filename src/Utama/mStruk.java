@@ -53,14 +53,14 @@ public class mStruk {
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada (barang/get)","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (struk/get)","Error",JOptionPane.ERROR_MESSAGE);
         }
         return jum;
     }
 
     public Object[][] Read_struk(){
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir","root","");
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT struk.id_struk,struk.id_pegawai,tanggal,sum(jumlah*harga_barang) AS pendapatan "
                     + "FROM struk inner join detail_struk on struk.id_struk = detail_struk.id_struk "
@@ -77,7 +77,8 @@ public class mStruk {
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada (struk/find)","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Database tidak ada (struk/read)","Error",JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.getMessage());
         }
 
         return struk;

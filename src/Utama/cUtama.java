@@ -25,6 +25,7 @@ public class cUtama extends WindowAdapter {
         view.fkasir.setText(String.valueOf(dpegawai[1]));
 
         view.barangJTable.setModel((new JTable(barang.All_barang(),view.kolomBarang)).getModel());
+        view.laporanJTable.setModel((new JTable(struk.Read_struk(),view.kolomLaporan)).getModel());
 
         view.bTambah.addActionListener(new ActionListener() {
             @Override
