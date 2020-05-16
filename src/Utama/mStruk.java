@@ -33,11 +33,11 @@ public class mStruk {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir","root","");
             statement = connection.createStatement();
-            statement.executeQuery("INSERT INTO struk VALUES("+ id_struk +","+ id +",'"+ date +"')");
+            statement.executeUpdate("INSERT INTO struk VALUES("+ id_struk +","+ id +",'"+ date +"')");
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error create struk",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -62,22 +62,22 @@ public class mStruk {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir","root","");
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT struk.id_struk,struk.id_pegawai,tanggal,sum(jumlah*harga_barang) AS pendapatan "
-                    + "FROM struk inner join detail_struk on struk.id_struk = detail_struk.id_struk "
-                    + "inner join pegawai on struk.id_pegawai = pegawai.id_pegawai "
-                    + "inner join barang on detail_struk.id_barang = barang.id_barang "
-                    + "group by struk.id_struk");
-
-
-            struk[0][0] = resultSet.getString("id_struk");
-            struk[0][1] = resultSet.getString("id_pegawai");
-            struk[0][2] = resultSet.getString("tanggal");
-            struk[0][3] = resultSet.getString("pendapatan");
-
+            resultSet = statement.executeQuery("SELECT * ,sum(barang.harga_barang*detail_struk.jumlah) AS pendapatan " +
+                            "FROM struk inner join detail_struk on struk.id_struk = detail_struk.id_struk " +
+                            "inner join pegawai on struk.id_pegawai = pegawai.id_pegawai " +
+                            "inner join barang on detail_struk.id_barang = barang.id_barang " +
+                            "group by struk.id_struk");
+            int p = 0;
+            while (resultSet.next()) {
+                struk[p][0] = resultSet.getString("tanggal");
+                struk[p][1] = resultSet.getString("id_struk");
+                struk[p][2] = resultSet.getString("nama_pegawai");
+                struk[p][3] = resultSet.getInt("pendapatan");
+            }
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada (struk/find)","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
 
         return struk;

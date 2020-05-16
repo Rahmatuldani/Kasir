@@ -29,7 +29,6 @@ public class vUtama extends JFrame {
     JTextField fkode = new JTextField(15);
     JTextField fjum = new JTextField(7);
     JTextField ftotal = new JTextField("0",30);
-
     JButton bTambah = new JButton("Tambah");
     JButton bEdit = new JButton("Edit");
     JButton bHapus = new JButton("Hapus");
@@ -64,7 +63,13 @@ public class vUtama extends JFrame {
     JLabel stokLabel = new JLabel("Stok Barang : ");
     JButton tambahBarang = new JButton("Tambah");
     JButton editBarang = new JButton("Edit");
-    
+
+//    Laporan
+    String[] kolomLaporan = {"Tanggal","ID Struk","Nama Kasir","Pendapatan"};
+    DefaultTableModel tableModel2 = new DefaultTableModel(kolomLaporan,0);
+    JTable laporanJTable = new JTable(tableModel2);
+    JScrollPane LaporanjScrollPane = new JScrollPane(laporanJTable);
+
     public vUtama(){
         setTitle("Sistem Kasir");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -175,10 +180,7 @@ public class vUtama extends JFrame {
         
 //        Bagian Laporan
         pLaporan.setLayout(new BoxLayout(pLaporan,BoxLayout.LINE_AXIS));
-        String[] kolomLaporan = {"Tanggal","ID Struk","Nama Kasir","Pendapatan"};
-        DefaultTableModel tableModel2 = new DefaultTableModel(kolomLaporan,0);
-        JTable laporanJTable = new JTable(tableModel2);
-        JScrollPane LaporanjScrollPane = new JScrollPane(laporanJTable);
+        pLaporan.add(LaporanjScrollPane);
     }
 
 //    public JFrame Tambah(){

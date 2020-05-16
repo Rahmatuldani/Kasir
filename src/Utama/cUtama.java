@@ -20,11 +20,15 @@ public class cUtama extends WindowAdapter {
     cUtama(vUtama view1, int id){
         view = view1;
 
+        view.fno.setText(String.valueOf(struk.get_data()));
+
         Object[] dpegawai = pegawai.Find_pegawai(id);
 
         view.fkasir.setText(String.valueOf(dpegawai[1]));
 
         view.barangJTable.setModel((new JTable(barang.All_barang(),view.kolomBarang)).getModel());
+
+        view.laporanJTable.setModel((new JTable(struk.Read_struk(),view.kolomLaporan)).getModel());
 
         view.bTambah.addActionListener(new ActionListener() {
             @Override
@@ -41,6 +45,10 @@ public class cUtama extends WindowAdapter {
         view.bHapus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                int total_baru = (int)view.table.getValueAt(view.table.getSelectedRow(),5);
+                int total_lama = Integer.parseInt(view.ftotal.getText());
+                view.ftotal.setText(String.valueOf(total_lama-total_baru));
+                view.no--;
                 view.tableModel.removeRow(view.table.getSelectedRow());
             }
         });
@@ -56,8 +64,10 @@ public class cUtama extends WindowAdapter {
                 for (int i = 0; i < view.tableModel.getRowCount(); i++) {
                     data[i][0] = view.table.getValueAt(i,1).toString();
                     data[i][1] = view.table.getValueAt(i,4).toString();
-                    detailStruk.Create_struk((int)data[i][0],Integer.parseInt(view.fno.getText()),(int)data[i][1]);
+                    detailStruk.Create_struk(Integer.parseInt((String)data[i][0]),Integer.parseInt(view.fno.getText()),Integer.parseInt((String)data[i][1]));
                 }
+                view.tableModel.setRowCount(0);
+                view.ftotal.setText("0");
             }
         });
     }

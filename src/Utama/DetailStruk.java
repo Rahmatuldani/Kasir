@@ -12,7 +12,7 @@ public class DetailStruk {
 
     public Object[][] Find_struk(int id){
         try {
-            connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir","root","");
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM detail_struk WHERE id_struk = "+ id +" ");
 
@@ -31,13 +31,13 @@ public class DetailStruk {
 
     public void Create_struk(int id_barang, int id_struk, int jumlah){
         try {
-            connection = DriverManager.getConnection("mysql:jdbc://localhost/kasir","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/kasir","root","");
             statement = connection.createStatement();
-            statement.executeQuery("INSERT INTO detail_struk VALUES("+ id_barang +","+ id_struk +","+ jumlah +")");
+            statement.executeUpdate("INSERT INTO detail_struk VALUES("+ id_barang +","+ id_struk +","+ jumlah +")");
             statement.close();
             connection.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null,"Database tidak ada (detailstruk/create)","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error create detail struk",JOptionPane.ERROR_MESSAGE);
         }
     }
 }
