@@ -9,7 +9,6 @@ import java.util.TimerTask;
 import java.text.*;
 
 public class vUtama extends JFrame {
-    cUtama controller;
     JTabbedPane tab = new JTabbedPane();
     JPanel pKasir = new JPanel();
     JPanel pBarang = new JPanel();
@@ -65,6 +64,8 @@ public class vUtama extends JFrame {
     JButton editBarang = new JButton("Edit");
 
 //    Laporan
+    
+// Bagian Laporan
     String[] kolomLaporan = {"Tanggal","ID Struk","Nama Kasir","Pendapatan"};
     DefaultTableModel tableModel2 = new DefaultTableModel(kolomLaporan,0);
     JTable laporanJTable = new JTable(tableModel2);
@@ -180,7 +181,11 @@ public class vUtama extends JFrame {
         
 //        Bagian Laporan
         pLaporan.setLayout(new BoxLayout(pLaporan,BoxLayout.LINE_AXIS));
+
         pLaporan.add(LaporanjScrollPane);
+
+        pLaporan.add(laporanJTable);
+
     }
 
 //    public JFrame Tambah(){
