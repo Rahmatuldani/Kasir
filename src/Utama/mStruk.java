@@ -73,6 +73,7 @@ public class mStruk {
                 struk[p][1] = resultSet.getString("id_struk");
                 struk[p][2] = resultSet.getString("nama_pegawai");
                 struk[p][3] = resultSet.getInt("pendapatan");
+                p++;
             }
             statement.close();
             connection.close();
