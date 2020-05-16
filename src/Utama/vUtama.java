@@ -65,6 +65,7 @@ public class vUtama extends JFrame {
 
 //    Laporan
     
+
 // Bagian Laporan
     String[] kolomLaporan = {"Tanggal","ID Struk","Nama Kasir","Pendapatan"};
     DefaultTableModel tableModel2 = new DefaultTableModel(kolomLaporan,0);
@@ -161,7 +162,7 @@ public class vUtama extends JFrame {
         pBarang.setLayout(new BoxLayout(pBarang,BoxLayout.LINE_AXIS));
         
 //        Setting Tabel
-        barangJTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        //barangJTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         barangJTable.setRowHeight(20);
         barangJTable.setFont(new Font("SansSerif",Font.PLAIN,14));
         barangJTable.getColumnModel().getColumn(0).setPreferredWidth(200);
@@ -182,9 +183,11 @@ public class vUtama extends JFrame {
 //        Bagian Laporan
         pLaporan.setLayout(new BoxLayout(pLaporan,BoxLayout.LINE_AXIS));
 
+        //pLaporan.add(laporanJTable);
+
         pLaporan.add(LaporanjScrollPane);
 
-        pLaporan.add(laporanJTable);
+        
 
     }
 
